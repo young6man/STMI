@@ -1,0 +1,42 @@
+MODEL:
+  TRANSFORMER_TYPE: 'ViT-B-16'          # Type of transformer backbone
+  STRIDE_SIZE: [16, 16]                 # Stride size for ViT or CLIP patch embedding
+  DIRECT: 1                             # Whether to use directly contact features loss supervision
+  MASK: True                            # Whether to use SFM
+  PROBABILITY: 0.015                     # The random probability in SFM
+  STR_CHI: True                         # Whether to use STR and CHI
+  LEARNABLE_TOKENS: 4                   # The number of learnable tokens in STR
+  THRESHOLD: 5.0                        # The threshold in CHI
+
+INPUT:
+  SIZE_TRAIN: [128, 256]                # Image size during training (height, width)
+  SIZE_TEST: [128, 256]                 # Image size during testing (height, width)
+  PROB: 0.5                             # Probability for random horizontal flip
+  RE_PROB: 0.5                          # Probability for random erasing
+  PADDING: 10                           # Padding size for random cropping
+
+DATALOADER:
+  SAMPLER: 'softmax_triplet'            # Sampler type for data loading
+  NUM_INSTANCE: 8                       # Number of instances per batch
+  NUM_WORKERS: 14                       # Number of data loading threads
+
+DATASETS:
+  NAMES: ('MSVR310')                    # Dataset name(s) for training
+  ROOT_DIR: '..'                        # Root directory for datasets
+
+SOLVER:
+  BASE_LR: 0.00035                      # Base learning rate
+  WARMUP_ITERS: 10                      # Number of warmup iterations
+  MAX_EPOCHS: 20                        # Maximum number of training epochs
+  OPTIMIZER_NAME: 'Adam'                # Optimizer name
+  IMS_PER_BATCH: 64                     # Number of images per batch
+  EVAL_PERIOD: 1                        # Evaluation period (in epochs)
+
+TEST:
+  IMS_PER_BATCH: 128                    # Number of images per batch during testing
+  WEIGHT: ''                            # Path to the trained model weights
+  MISS: "nothing"                       # Modality missing pattern (options: 'nothing', etc.)
+
+OUTPUT_DIR: './STMI_MSVR310'           # Output directory for checkpoints and logs
+
+
