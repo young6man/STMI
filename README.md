@@ -87,7 +87,12 @@ CUDA_VISIBLE_DEVICES=0 python train.py --config_file ./configs/RGBNT201/STMI.yml
 
 If you find **STMI** helpful in your research, please consider citing:
 ```bibtex
-
+@inproceedings{xu2026stmi,
+  title={STMI: Segmentation-Guided Token Modulation with Cross-Modal Hypergraph Interaction for Multi-Modal Object Re-Identification},
+  author={Xu, Xingguo and Liu, Zhanyu and Zhou, Weixiang and Gao, Yuansheng and Cao, Junjie and Wang, Yuhao and Luo, Jixiang and Zhang, Dell},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  year={2026}
+}
 ```
 
 ---
